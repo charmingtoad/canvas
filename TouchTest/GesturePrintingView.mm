@@ -22,9 +22,6 @@
 - (void) queueTouchesForDrawing: (NSSet*) touches;
 
 - (void) clearButtonPressed: (UIButton*) button;
-- (void) linesButtonPressed: (UIButton*) button;
-- (void) boxesButtonPressed: (UIButton*) button;
-- (void) trianglesButtonPressed: (UIButton*) button;
 
 @end
 
@@ -41,28 +38,26 @@
         self.opaque = NO;
         self.clearsContextBeforeDrawing = NO;
         
+        NSArray* segments = [NSArray arrayWithObjects:
+                             @"Lines",
+                             @"Boxes",
+                             @"Trianges", nil];
+        
+        drawingStrategySelectionControl = [[UISegmentedControl alloc] initWithItems: segments];
+        
+        [drawingStrategySelectionControl addTarget: self
+                                            action: @selector(drawingStrategySelected:)
+                                  forControlEvents:UIControlEventValueChanged];
+        
+        [drawingStrategySelectionControl setSelectedSegmentIndex: 0];
+        
+        [self addSubview: drawingStrategySelectionControl];
+        [drawingStrategySelectionControl release];
+        
         clearButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         [clearButton setTitle: @"Clear" forState:UIControlStateNormal];
         [clearButton addTarget: self action: @selector(clearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview: clearButton];
-        
-        linesButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-        [linesButton setTitle: @"Lines" forState: UIControlStateNormal];
-        [linesButton addTarget:self action:@selector(linesButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        linesButton.titleLabel.backgroundColor = [UIColor buttonOnColor];
-        [self addSubview: linesButton];
-        
-        boxesButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-        [boxesButton setTitle: @"Boxes" forState: UIControlStateNormal];
-        [boxesButton addTarget:self action:@selector(boxesButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        boxesButton.titleLabel.backgroundColor = [UIColor buttonOffColor];
-        [self addSubview: boxesButton];
-        
-        trianglesButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-        [trianglesButton setTitle: @"Triangles" forState: UIControlStateNormal];
-        [trianglesButton addTarget:self action:@selector(trianglesButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        trianglesButton.titleLabel.backgroundColor = [UIColor buttonOffColor];
-        [self addSubview: trianglesButton];
         
         [self initCacheContext];
         
@@ -170,29 +165,19 @@
     float const buttonX = self.frame.size.width - buttonWidth - 1.0f;
     
     float const clearButtonY = self.frame.size.height - buttonHeight;
-    float const trianglesButtonY = clearButtonY - buttonHeight - 50.0f;
-    float const boxesButtonY = trianglesButtonY - buttonHeight - 6.0f;
-    float const linesButtonY = boxesButtonY - buttonHeight - 6.0f;
-    
+        
     clearButton.frame = CGRectMake (buttonX,
                                     clearButtonY,
                                     buttonWidth,
                                     buttonHeight);
     
-    trianglesButton.frame = CGRectMake(buttonX,
-                                       trianglesButtonY,
-                                       buttonWidth,
-                                       buttonHeight);
+        
+    float const segmentControlHeight = 50.0f;
     
-    boxesButton.frame = CGRectMake (buttonX,
-                                    boxesButtonY,
-                                    buttonWidth,
-                                    buttonHeight);
-    
-    linesButton.frame = CGRectMake (buttonX,
-                                    linesButtonY,
-                                    buttonWidth,
-                                    buttonHeight);
+    drawingStrategySelectionControl.frame = CGRectMake (0,
+                                                        self.frame.size.height - segmentControlHeight,
+                                                        self.frame.size.width,
+                                                        segmentControlHeight);
 }
 
 #pragma mark -
@@ -231,39 +216,30 @@
 #pragma mark -
 #pragma mark Button Callbacks
 
+- (void) drawingStrategySelected: (id) sender
+{
+    int selectedIndex = [sender selectedSegmentIndex];
+    
+    if (selectedIndex == 2)
+    {
+        self.drawingStrategy = [[TriangleDrawingStrategy new] autorelease];
+    }
+    else if (selectedIndex == 1)
+    {
+        self.drawingStrategy = [[BoxDrawingStrategy new] autorelease];
+    }
+    else
+    {
+        self.drawingStrategy = [[LineDrawingStrategy new] autorelease];
+    }
+}
+
 - (void) clearButtonPressed: (UIButton*) button
 {
     CGContextSetFillColorWithColor(cacheContext, [UIColor whiteColor].CGColor);
     CGContextFillRect(cacheContext, self.bounds);
     
     [self setNeedsDisplay];
-}
-
-- (void) linesButtonPressed: (UIButton*) button
-{
-    linesButton.titleLabel.backgroundColor = [UIColor buttonOnColor];
-    boxesButton.titleLabel.backgroundColor = [UIColor buttonOffColor];
-    trianglesButton.titleLabel.backgroundColor = [UIColor buttonOffColor];
-    
-    self.drawingStrategy = [[LineDrawingStrategy new] autorelease];
-}
-
-- (void) boxesButtonPressed: (UIButton*) button
-{
-    boxesButton.titleLabel.backgroundColor = [UIColor buttonOnColor];
-    linesButton.titleLabel.backgroundColor = [UIColor buttonOffColor];
-    trianglesButton.titleLabel.backgroundColor = [UIColor buttonOffColor];
-    
-    self.drawingStrategy = [[BoxDrawingStrategy new] autorelease];
-}
-
-- (void) trianglesButtonPressed: (UIButton*) button
-{
-    trianglesButton.titleLabel.backgroundColor = [UIColor buttonOnColor];
-    boxesButton.titleLabel.backgroundColor = [UIColor buttonOffColor];
-    linesButton.titleLabel.backgroundColor = [UIColor buttonOffColor];
-    
-    self.drawingStrategy = [[TriangleDrawingStrategy new] autorelease];
 }
 
 @end

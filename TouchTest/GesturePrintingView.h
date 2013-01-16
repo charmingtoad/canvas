@@ -16,11 +16,9 @@ using namespace std;
 @interface GesturePrintingView : UIView
 {
     @private
-    UIButton* clearButton;
     
-    UIButton* linesButton;
-    UIButton* boxesButton;
-    UIButton* trianglesButton;
+    UIButton* clearButton;
+    UISegmentedControl* drawingStrategySelectionControl;
     
     map<UITouch*,UIColor*>colorForTouch;
     NSMutableArray* undrawnSegments;
