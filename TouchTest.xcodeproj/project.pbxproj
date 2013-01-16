@@ -19,8 +19,6 @@
 		FA9936B416274764004125CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9936B316274764004125CC /* main.m */; };
 		FA9936B816274764004125CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9936B716274764004125CC /* AppDelegate.m */; };
 		FA9936BB16274764004125CC /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA9936BA16274764004125CC /* ViewController.mm */; };
-		FA9936BE16274764004125CC /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9936BC16274764004125CC /* ViewController_iPhone.xib */; };
-		FA9936C116274764004125CC /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9936BF16274764004125CC /* ViewController_iPad.xib */; };
 		FA9936C9162747BD004125CC /* GesturePrintingView.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA9936C8162747BD004125CC /* GesturePrintingView.mm */; };
 		FAF8FE01162CC3370076CF4E /* TriangleDrawingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF8FE00162CC3370076CF4E /* TriangleDrawingStrategy.m */; };
 		FAF8FE19162DAB940076CF4E /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF8FE18162DAB940076CF4E /* UIColor+Extensions.m */; };
@@ -48,8 +46,6 @@
 		FA9936B716274764004125CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FA9936B916274764004125CC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FA9936BA16274764004125CC /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
-		FA9936BD16274764004125CC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
-		FA9936C016274764004125CC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		FA9936C7162747BD004125CC /* GesturePrintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GesturePrintingView.h; sourceTree = "<group>"; };
 		FA9936C8162747BD004125CC /* GesturePrintingView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GesturePrintingView.mm; sourceTree = "<group>"; };
 		FAF8FDFF162CC3370076CF4E /* TriangleDrawingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleDrawingStrategy.h; sourceTree = "<group>"; };
@@ -125,8 +121,6 @@
 				FA9936C8162747BD004125CC /* GesturePrintingView.mm */,
 				FA9936B916274764004125CC /* ViewController.h */,
 				FA9936BA16274764004125CC /* ViewController.mm */,
-				FA9936BC16274764004125CC /* ViewController_iPhone.xib */,
-				FA9936BF16274764004125CC /* ViewController_iPad.xib */,
 				FA7EED66162CBAC1003A8C17 /* LineSegment.h */,
 				FA7EED67162CBAC1003A8C17 /* LineSegment.m */,
 				FAF8FE17162DAB940076CF4E /* UIColor+Extensions.h */,
@@ -199,8 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA9936B216274764004125CC /* InfoPlist.strings in Resources */,
-				FA9936BE16274764004125CC /* ViewController_iPhone.xib in Resources */,
-				FA9936C116274764004125CC /* ViewController_iPad.xib in Resources */,
 				BFA75D4A16A646E500E75544 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,22 +226,6 @@
 				FA9936B116274764004125CC /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FA9936BC16274764004125CC /* ViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA9936BD16274764004125CC /* en */,
-			);
-			name = ViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		FA9936BF16274764004125CC /* ViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA9936C016274764004125CC /* en */,
-			);
-			name = ViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
