@@ -1,34 +1,46 @@
 //
-//  GesturePrintingView.m
+//  DrawingView.m
 //  TouchTest
 //
 //  Created by Linda Morton on 10/11/12.
 //  Copyright (c) 2012 William O'Neil. All rights reserved.
 //
 
-#import "GesturePrintingView.h"
+#import "DrawingView.h"
 #import "LineSegment.h"
 #import "LineDrawingStrategy.h"
 #import "BoxDrawingStrategy.h"
 #import "TriangleDrawingStrategy.h"
 #import "UIColor+Extensions.h"
 
-@interface GesturePrintingView ()
+@interface DrawingView ()
 
 /** The strategy used to draw touches detected on this view. */
 @property (nonatomic, retain) DrawingStrategy* drawingStrategy;
 
+/** Creates the bitmap context where off-screen drawing will occur. Whenever this
+    view refreshes, the cacheContext will be rendered on-screen in drawRect.
+ */
 - (void) initCacheContext;
 
+/** Converts touches into LineSegments and adds them to the undrawnSegments array. */
 - (void) queueTouchesForDrawing: (NSSet*) touches;
 
+/** Draws undrawnSegments using the cacheContext. */
+- (void) updateCache;
+
+/** Button callbacks */
 - (void) clearButtonPressed: (UIButton*) button;
+- (void) drawingStrategySelected: (id) sender;
 
 @end
 
-@implementation GesturePrintingView
+@implementation DrawingView
 
 @synthesize drawingStrategy;
+
+#pragma mark -
+#pragma mark Init / Dealloc
 
 - (id) initWithFrame:(CGRect)frame
 {

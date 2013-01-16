@@ -1,24 +1,24 @@
 //
-//  ViewController.m
+//  DrawingViewController.m
 //  TouchTest
 //
 //  Created by Linda Morton on 10/11/12.
 //  Copyright (c) 2012 William O'Neil. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "GesturePrintingView.h"
+#import "DrawingViewController.h"
+#import "DrawingView.h"
 
-@interface ViewController ()
+@interface DrawingViewController ()
 
 @end
 
-@implementation ViewController
+@implementation DrawingViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	GesturePrintingView* gestureView = [[GesturePrintingView alloc] initWithFrame: self.view.bounds];
+	DrawingView* gestureView = [[DrawingView alloc] initWithFrame: self.view.bounds];
     [self.view addSubview: gestureView];
     [gestureView release];
 }

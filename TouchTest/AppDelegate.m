@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "DrawingViewController.h"
 
 @implementation AppDelegate
 
@@ -23,7 +23,7 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 
-    self.viewController = [ViewController new];
+    self.viewController = [DrawingViewController new];
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];

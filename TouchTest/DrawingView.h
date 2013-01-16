@@ -1,5 +1,5 @@
 //
-//  GesturePrintingView.h
+//  DrawingView.h
 //  TouchTest
 //
 //  Created by Linda Morton on 10/11/12.
@@ -13,7 +13,7 @@
 
 using namespace std;
 
-@interface GesturePrintingView : UIView
+@interface DrawingView : UIView
 {
     @private
     
