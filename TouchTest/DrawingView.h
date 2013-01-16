@@ -7,18 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <map>
 
 @class DrawingStrategy;
-
-using namespace std;
 
 @interface DrawingView : UIView
 {
     UIButton* clearButton;
     UISegmentedControl* drawingStrategySelectionControl;
     
-    map<UITouch*,UIColor*>colorForTouch;
+    CFMutableDictionaryRef colorForTouch;
     NSMutableArray* undrawnSegments;
     
     CGContextRef cacheContext;

@@ -18,8 +18,8 @@
 		FA9936B216274764004125CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA9936B016274764004125CC /* InfoPlist.strings */; };
 		FA9936B416274764004125CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9936B316274764004125CC /* main.m */; };
 		FA9936B816274764004125CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9936B716274764004125CC /* AppDelegate.m */; };
-		FA9936BB16274764004125CC /* DrawingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA9936BA16274764004125CC /* DrawingViewController.mm */; };
-		FA9936C9162747BD004125CC /* DrawingView.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA9936C8162747BD004125CC /* DrawingView.mm */; };
+		FA9936BB16274764004125CC /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9936BA16274764004125CC /* DrawingViewController.m */; };
+		FA9936C9162747BD004125CC /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9936C8162747BD004125CC /* DrawingView.m */; };
 		FAF8FE01162CC3370076CF4E /* TriangleDrawingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF8FE00162CC3370076CF4E /* TriangleDrawingStrategy.m */; };
 		FAF8FE19162DAB940076CF4E /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF8FE18162DAB940076CF4E /* UIColor+Extensions.m */; };
 /* End PBXBuildFile section */
@@ -45,9 +45,9 @@
 		FA9936B616274764004125CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FA9936B716274764004125CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FA9936B916274764004125CC /* DrawingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
-		FA9936BA16274764004125CC /* DrawingViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DrawingViewController.mm; sourceTree = "<group>"; };
+		FA9936BA16274764004125CC /* DrawingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
 		FA9936C7162747BD004125CC /* DrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
-		FA9936C8162747BD004125CC /* DrawingView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DrawingView.mm; sourceTree = "<group>"; };
+		FA9936C8162747BD004125CC /* DrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
 		FAF8FDFF162CC3370076CF4E /* TriangleDrawingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleDrawingStrategy.h; sourceTree = "<group>"; };
 		FAF8FE00162CC3370076CF4E /* TriangleDrawingStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleDrawingStrategy.m; sourceTree = "<group>"; };
 		FAF8FE17162DAB940076CF4E /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
@@ -118,9 +118,9 @@
 				FA9936B616274764004125CC /* AppDelegate.h */,
 				FA9936B716274764004125CC /* AppDelegate.m */,
 				FA9936C7162747BD004125CC /* DrawingView.h */,
-				FA9936C8162747BD004125CC /* DrawingView.mm */,
+				FA9936C8162747BD004125CC /* DrawingView.m */,
 				FA9936B916274764004125CC /* DrawingViewController.h */,
-				FA9936BA16274764004125CC /* DrawingViewController.mm */,
+				FA9936BA16274764004125CC /* DrawingViewController.m */,
 				FA7EED66162CBAC1003A8C17 /* LineSegment.h */,
 				FA7EED67162CBAC1003A8C17 /* LineSegment.m */,
 				FAF8FE17162DAB940076CF4E /* UIColor+Extensions.h */,
@@ -206,8 +206,8 @@
 			files = (
 				FA9936B416274764004125CC /* main.m in Sources */,
 				FA9936B816274764004125CC /* AppDelegate.m in Sources */,
-				FA9936BB16274764004125CC /* DrawingViewController.mm in Sources */,
-				FA9936C9162747BD004125CC /* DrawingView.mm in Sources */,
+				FA9936BB16274764004125CC /* DrawingViewController.m in Sources */,
+				FA9936C9162747BD004125CC /* DrawingView.m in Sources */,
 				FA7EED68162CBAC1003A8C17 /* LineSegment.m in Sources */,
 				FA7EED73162CBBC4003A8C17 /* DrawingStrategy.m in Sources */,
 				FA7EED74162CBBC4003A8C17 /* LineDrawingStrategy.m in Sources */,

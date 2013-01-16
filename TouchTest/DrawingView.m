@@ -72,6 +72,8 @@
         
         [self initCacheContext];
         
+        colorForTouch = CFDictionaryCreateMutable(kCFAllocatorDefault, 0, nil, nil);
+        
         undrawnSegments = [[NSMutableArray alloc] initWithCapacity: 5];
         
         // default will be line drawing
@@ -110,6 +112,7 @@
 - (void) dealloc
 {
     CGContextRelease(cacheContext);
+    CFRelease(colorForTouch);
     
     [undrawnSegments release];
     [drawingStrategy release];
@@ -152,14 +155,14 @@
         newSegment.start = prevLocation;
         newSegment.end = currentLocation;
         
-        if (colorForTouch.find(touch) != colorForTouch.end())
+        if (CFDictionaryContainsKey(colorForTouch, touch))
         {
-            newSegment.color = colorForTouch[touch];
+            newSegment.color = CFDictionaryGetValue(colorForTouch, touch);
         }
         else
         {
-            colorForTouch[touch] = [UIColor randomColor];
-            newSegment.color = colorForTouch[touch];
+            CFDictionarySetValue(colorForTouch, touch, [UIColor randomColor]);
+            newSegment.color = CFDictionaryGetValue(colorForTouch, touch);
         }
         
         [undrawnSegments addObject: newSegment];
@@ -204,8 +207,8 @@
 {
     for (UITouch* touch in touches)
     {
-        if (colorForTouch.find(touch) != colorForTouch.end())
-            colorForTouch.erase(colorForTouch.find(touch));
+        if (CFDictionaryContainsKey(colorForTouch, touch))
+            CFDictionaryRemoveValue(colorForTouch, touch);
     }
 }
 
@@ -213,8 +216,8 @@
 {
     for (UITouch* touch in touches)
     {
-        if (colorForTouch.find(touch) != colorForTouch.end())
-            colorForTouch.erase(colorForTouch.find(touch));
+        if (CFDictionaryContainsKey(colorForTouch, touch))
+            CFDictionaryRemoveValue(colorForTouch, touch);
     }
 }
 
