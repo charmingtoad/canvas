@@ -15,6 +15,7 @@
 
 @interface GesturePrintingView ()
 
+/** The strategy used to draw touches detected on this view. */
 @property (nonatomic, retain) DrawingStrategy* drawingStrategy;
 
 - (void) initCacheContext;
@@ -49,8 +50,6 @@
                                             action: @selector(drawingStrategySelected:)
                                   forControlEvents:UIControlEventValueChanged];
         
-        [drawingStrategySelectionControl setSelectedSegmentIndex: 0];
-        
         [self addSubview: drawingStrategySelectionControl];
         [drawingStrategySelectionControl release];
         
@@ -64,6 +63,8 @@
         undrawnSegments = [[NSMutableArray alloc] initWithCapacity: 5];
         
         // default will be line drawing
+        [drawingStrategySelectionControl setSelectedSegmentIndex: 0];
+        
         DrawingStrategy* strategy = [LineDrawingStrategy new];
         self.drawingStrategy = strategy;
         [strategy release];
