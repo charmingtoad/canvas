@@ -1,0 +1,355 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BFA75D4A16A646E500E75544 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA75D4916A646E500E75544 /* Default-568h@2x.png */; };
+		FA7EED68162CBAC1003A8C17 /* LineSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED67162CBAC1003A8C17 /* LineSegment.m */; };
+		FA7EED73162CBBC4003A8C17 /* DrawingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED6E162CBBC4003A8C17 /* DrawingStrategy.m */; };
+		FA7EED74162CBBC4003A8C17 /* LineDrawingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED70162CBBC4003A8C17 /* LineDrawingStrategy.m */; };
+		FA7EED75162CBBC4003A8C17 /* BoxDrawingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED72162CBBC4003A8C17 /* BoxDrawingStrategy.m */; };
+		FA9936A816274764004125CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9936A716274764004125CC /* UIKit.framework */; };
+		FA9936AA16274764004125CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9936A916274764004125CC /* Foundation.framework */; };
+		FA9936AC16274764004125CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9936AB16274764004125CC /* CoreGraphics.framework */; };
+		FA9936B216274764004125CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA9936B016274764004125CC /* InfoPlist.strings */; };
+		FA9936B416274764004125CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9936B316274764004125CC /* main.m */; };
+		FA9936B816274764004125CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9936B716274764004125CC /* AppDelegate.m */; };
+		FA9936BB16274764004125CC /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA9936BA16274764004125CC /* ViewController.mm */; };
+		FA9936BE16274764004125CC /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9936BC16274764004125CC /* ViewController_iPhone.xib */; };
+		FA9936C116274764004125CC /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9936BF16274764004125CC /* ViewController_iPad.xib */; };
+		FA9936C9162747BD004125CC /* GesturePrintingView.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA9936C8162747BD004125CC /* GesturePrintingView.mm */; };
+		FAF8FE01162CC3370076CF4E /* TriangleDrawingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF8FE00162CC3370076CF4E /* TriangleDrawingStrategy.m */; };
+		FAF8FE19162DAB940076CF4E /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF8FE18162DAB940076CF4E /* UIColor+Extensions.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BFA75D4916A646E500E75544 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FA7EED66162CBAC1003A8C17 /* LineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineSegment.h; sourceTree = "<group>"; };
+		FA7EED67162CBAC1003A8C17 /* LineSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineSegment.m; sourceTree = "<group>"; };
+		FA7EED6D162CBBC4003A8C17 /* DrawingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingStrategy.h; sourceTree = "<group>"; };
+		FA7EED6E162CBBC4003A8C17 /* DrawingStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingStrategy.m; sourceTree = "<group>"; };
+		FA7EED6F162CBBC4003A8C17 /* LineDrawingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineDrawingStrategy.h; sourceTree = "<group>"; };
+		FA7EED70162CBBC4003A8C17 /* LineDrawingStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineDrawingStrategy.m; sourceTree = "<group>"; };
+		FA7EED71162CBBC4003A8C17 /* BoxDrawingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxDrawingStrategy.h; sourceTree = "<group>"; };
+		FA7EED72162CBBC4003A8C17 /* BoxDrawingStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxDrawingStrategy.m; sourceTree = "<group>"; };
+		FA9936A316274764004125CC /* TouchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA9936A716274764004125CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FA9936A916274764004125CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA9936AB16274764004125CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FA9936AF16274764004125CC /* TouchTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TouchTest-Info.plist"; sourceTree = "<group>"; };
+		FA9936B116274764004125CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA9936B316274764004125CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA9936B516274764004125CC /* TouchTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TouchTest-Prefix.pch"; sourceTree = "<group>"; };
+		FA9936B616274764004125CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FA9936B716274764004125CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FA9936B916274764004125CC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FA9936BA16274764004125CC /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		FA9936BD16274764004125CC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		FA9936C016274764004125CC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		FA9936C7162747BD004125CC /* GesturePrintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GesturePrintingView.h; sourceTree = "<group>"; };
+		FA9936C8162747BD004125CC /* GesturePrintingView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GesturePrintingView.mm; sourceTree = "<group>"; };
+		FAF8FDFF162CC3370076CF4E /* TriangleDrawingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleDrawingStrategy.h; sourceTree = "<group>"; };
+		FAF8FE00162CC3370076CF4E /* TriangleDrawingStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleDrawingStrategy.m; sourceTree = "<group>"; };
+		FAF8FE17162DAB940076CF4E /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
+		FAF8FE18162DAB940076CF4E /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA9936A016274764004125CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA9936A816274764004125CC /* UIKit.framework in Frameworks */,
+				FA9936AA16274764004125CC /* Foundation.framework in Frameworks */,
+				FA9936AC16274764004125CC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA7EED6C162CBBC4003A8C17 /* DrawingStrategies */ = {
+			isa = PBXGroup;
+			children = (
+				FA7EED6D162CBBC4003A8C17 /* DrawingStrategy.h */,
+				FA7EED6E162CBBC4003A8C17 /* DrawingStrategy.m */,
+				FA7EED6F162CBBC4003A8C17 /* LineDrawingStrategy.h */,
+				FA7EED70162CBBC4003A8C17 /* LineDrawingStrategy.m */,
+				FA7EED71162CBBC4003A8C17 /* BoxDrawingStrategy.h */,
+				FA7EED72162CBBC4003A8C17 /* BoxDrawingStrategy.m */,
+				FAF8FDFF162CC3370076CF4E /* TriangleDrawingStrategy.h */,
+				FAF8FE00162CC3370076CF4E /* TriangleDrawingStrategy.m */,
+			);
+			path = DrawingStrategies;
+			sourceTree = "<group>";
+		};
+		FA99369816274764004125CC = {
+			isa = PBXGroup;
+			children = (
+				BFA75D4916A646E500E75544 /* Default-568h@2x.png */,
+				FA9936AD16274764004125CC /* TouchTest */,
+				FA9936A616274764004125CC /* Frameworks */,
+				FA9936A416274764004125CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA9936A416274764004125CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA9936A316274764004125CC /* TouchTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA9936A616274764004125CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA9936A716274764004125CC /* UIKit.framework */,
+				FA9936A916274764004125CC /* Foundation.framework */,
+				FA9936AB16274764004125CC /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA9936AD16274764004125CC /* TouchTest */ = {
+			isa = PBXGroup;
+			children = (
+				FA7EED6C162CBBC4003A8C17 /* DrawingStrategies */,
+				FA9936B616274764004125CC /* AppDelegate.h */,
+				FA9936B716274764004125CC /* AppDelegate.m */,
+				FA9936C7162747BD004125CC /* GesturePrintingView.h */,
+				FA9936C8162747BD004125CC /* GesturePrintingView.mm */,
+				FA9936B916274764004125CC /* ViewController.h */,
+				FA9936BA16274764004125CC /* ViewController.mm */,
+				FA9936BC16274764004125CC /* ViewController_iPhone.xib */,
+				FA9936BF16274764004125CC /* ViewController_iPad.xib */,
+				FA7EED66162CBAC1003A8C17 /* LineSegment.h */,
+				FA7EED67162CBAC1003A8C17 /* LineSegment.m */,
+				FAF8FE17162DAB940076CF4E /* UIColor+Extensions.h */,
+				FAF8FE18162DAB940076CF4E /* UIColor+Extensions.m */,
+				FA9936AE16274764004125CC /* Supporting Files */,
+			);
+			path = TouchTest;
+			sourceTree = "<group>";
+		};
+		FA9936AE16274764004125CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA9936AF16274764004125CC /* TouchTest-Info.plist */,
+				FA9936B016274764004125CC /* InfoPlist.strings */,
+				FA9936B316274764004125CC /* main.m */,
+				FA9936B516274764004125CC /* TouchTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA9936A216274764004125CC /* TouchTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA9936C416274764004125CC /* Build configuration list for PBXNativeTarget "TouchTest" */;
+			buildPhases = (
+				FA99369F16274764004125CC /* Sources */,
+				FA9936A016274764004125CC /* Frameworks */,
+				FA9936A116274764004125CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TouchTest;
+			productName = TouchTest;
+			productReference = FA9936A316274764004125CC /* TouchTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA99369A16274764004125CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "William O'Neil";
+			};
+			buildConfigurationList = FA99369D16274764004125CC /* Build configuration list for PBXProject "TouchTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FA99369816274764004125CC;
+			productRefGroup = FA9936A416274764004125CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA9936A216274764004125CC /* TouchTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA9936A116274764004125CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA9936B216274764004125CC /* InfoPlist.strings in Resources */,
+				FA9936BE16274764004125CC /* ViewController_iPhone.xib in Resources */,
+				FA9936C116274764004125CC /* ViewController_iPad.xib in Resources */,
+				BFA75D4A16A646E500E75544 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA99369F16274764004125CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA9936B416274764004125CC /* main.m in Sources */,
+				FA9936B816274764004125CC /* AppDelegate.m in Sources */,
+				FA9936BB16274764004125CC /* ViewController.mm in Sources */,
+				FA9936C9162747BD004125CC /* GesturePrintingView.mm in Sources */,
+				FA7EED68162CBAC1003A8C17 /* LineSegment.m in Sources */,
+				FA7EED73162CBBC4003A8C17 /* DrawingStrategy.m in Sources */,
+				FA7EED74162CBBC4003A8C17 /* LineDrawingStrategy.m in Sources */,
+				FA7EED75162CBBC4003A8C17 /* BoxDrawingStrategy.m in Sources */,
+				FAF8FE01162CC3370076CF4E /* TriangleDrawingStrategy.m in Sources */,
+				FAF8FE19162DAB940076CF4E /* UIColor+Extensions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FA9936B016274764004125CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA9936B116274764004125CC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FA9936BC16274764004125CC /* ViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA9936BD16274764004125CC /* en */,
+			);
+			name = ViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		FA9936BF16274764004125CC /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA9936C016274764004125CC /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA9936C216274764004125CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA9936C316274764004125CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA9936C516274764004125CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TouchTest/TouchTest-Prefix.pch";
+				INFOPLIST_FILE = "TouchTest/TouchTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FA9936C616274764004125CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TouchTest/TouchTest-Prefix.pch";
+				INFOPLIST_FILE = "TouchTest/TouchTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA99369D16274764004125CC /* Build configuration list for PBXProject "TouchTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA9936C216274764004125CC /* Debug */,
+				FA9936C316274764004125CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA9936C416274764004125CC /* Build configuration list for PBXNativeTarget "TouchTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA9936C516274764004125CC /* Debug */,
+				FA9936C616274764004125CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA99369A16274764004125CC /* Project object */;
+}
