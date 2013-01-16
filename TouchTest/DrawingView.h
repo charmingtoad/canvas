@@ -15,8 +15,6 @@ using namespace std;
 
 @interface DrawingView : UIView
 {
-    @private
-    
     UIButton* clearButton;
     UISegmentedControl* drawingStrategySelectionControl;
     
