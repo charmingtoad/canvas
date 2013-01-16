@@ -159,25 +159,17 @@
 
 - (void) layoutSubviews
 {
-    float const buttonWidth = 75.0f;
-    float const buttonHeight = 25.0f;
+    float buttonHeight = 50.0f;
     
-    float const buttonX = self.frame.size.width - buttonWidth - 1.0f;
-    
-    float const clearButtonY = self.frame.size.height - buttonHeight;
-        
-    clearButton.frame = CGRectMake (buttonX,
-                                    clearButtonY,
-                                    buttonWidth,
+    clearButton.frame = CGRectMake (0.0f,
+                                    self.frame.size.height - buttonHeight,
+                                    self.frame.size.width,
                                     buttonHeight);
     
-        
-    float const segmentControlHeight = 50.0f;
-    
-    drawingStrategySelectionControl.frame = CGRectMake (0,
-                                                        self.frame.size.height - segmentControlHeight,
+    drawingStrategySelectionControl.frame = CGRectMake (0.0f,
+                                                        self.frame.size.height - (2 * buttonHeight),
                                                         self.frame.size.width,
-                                                        segmentControlHeight);
+                                                        buttonHeight);
 }
 
 #pragma mark -
