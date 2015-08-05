@@ -7,8 +7,13 @@
 //
 
 #import "CVSBoxDrawingStrategy.h"
-#import "DrawingStrategySubclass.h"
 #import "CVSLineSegment.h"
+
+@interface CVSBoxDrawingStrategy ()
+
+@property (nonatomic, readwrite) CGRect lastUpdatedArea;
+
+@end
 
 @implementation CVSBoxDrawingStrategy
 

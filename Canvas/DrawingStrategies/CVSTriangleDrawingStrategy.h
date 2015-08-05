@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Linda Morton. All rights reserved.
 //
 
-#import "CVSDrawingStrategy.h"
+#import "CVSDrawingStrategyProtocol.h"
 
 /** 
  TriangleDrawingStrategy draws triangles pointing at the end point of each
  line segment.
  */
 
-@interface CVSTriangleDrawingStrategy : CVSDrawingStrategy
+@interface CVSTriangleDrawingStrategy : NSObject<CVSDrawingStrategyProtocol>
 
 @end

@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CVSDrawingStrategy.h"
+#import "CVSDrawingStrategyProtocol.h"
 
 /** 
  LineDrawingStrategy can be used to draw straight lines from each segment's
  start point to end point.
  */
 
-@interface CVSLineDrawingStrategy : CVSDrawingStrategy
+@interface CVSLineDrawingStrategy : NSObject <CVSDrawingStrategyProtocol>
 
 @end

@@ -10,7 +10,6 @@
 		BF2AEFD21B71EF3100AE69E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF2AEFD11B71EF3100AE69E0 /* Images.xcassets */; };
 		BFA75D4A16A646E500E75544 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA75D4916A646E500E75544 /* Default-568h@2x.png */; };
 		FA7EED68162CBAC1003A8C17 /* CVSLineSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED67162CBAC1003A8C17 /* CVSLineSegment.m */; };
-		FA7EED73162CBBC4003A8C17 /* CVSDrawingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED6E162CBBC4003A8C17 /* CVSDrawingStrategy.m */; };
 		FA7EED74162CBBC4003A8C17 /* CVSLineDrawingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED70162CBBC4003A8C17 /* CVSLineDrawingStrategy.m */; };
 		FA7EED75162CBBC4003A8C17 /* CVSBoxDrawingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED72162CBBC4003A8C17 /* CVSBoxDrawingStrategy.m */; };
 		FA9936A816274764004125CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9936A716274764004125CC /* UIKit.framework */; };
@@ -26,13 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BF2AEF961B71C61800AE69E0 /* DrawingStrategySubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingStrategySubclass.h; sourceTree = "<group>"; };
 		BF2AEFD11B71EF3100AE69E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BF2AEFD31B71FC4800AE69E0 /* CVSDrawingStrategyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVSDrawingStrategyProtocol.h; sourceTree = "<group>"; };
 		BFA75D4916A646E500E75544 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA7EED66162CBAC1003A8C17 /* CVSLineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVSLineSegment.h; sourceTree = "<group>"; };
 		FA7EED67162CBAC1003A8C17 /* CVSLineSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVSLineSegment.m; sourceTree = "<group>"; };
-		FA7EED6D162CBBC4003A8C17 /* CVSDrawingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVSDrawingStrategy.h; sourceTree = "<group>"; };
-		FA7EED6E162CBBC4003A8C17 /* CVSDrawingStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVSDrawingStrategy.m; sourceTree = "<group>"; };
 		FA7EED6F162CBBC4003A8C17 /* CVSLineDrawingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVSLineDrawingStrategy.h; sourceTree = "<group>"; };
 		FA7EED70162CBBC4003A8C17 /* CVSLineDrawingStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVSLineDrawingStrategy.m; sourceTree = "<group>"; };
 		FA7EED71162CBBC4003A8C17 /* CVSBoxDrawingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVSBoxDrawingStrategy.h; sourceTree = "<group>"; };
@@ -74,9 +71,7 @@
 		FA7EED6C162CBBC4003A8C17 /* DrawingStrategies */ = {
 			isa = PBXGroup;
 			children = (
-				FA7EED6D162CBBC4003A8C17 /* CVSDrawingStrategy.h */,
-				FA7EED6E162CBBC4003A8C17 /* CVSDrawingStrategy.m */,
-				BF2AEF961B71C61800AE69E0 /* DrawingStrategySubclass.h */,
+				BF2AEFD31B71FC4800AE69E0 /* CVSDrawingStrategyProtocol.h */,
 				FA7EED6F162CBBC4003A8C17 /* CVSLineDrawingStrategy.h */,
 				FA7EED70162CBBC4003A8C17 /* CVSLineDrawingStrategy.m */,
 				FA7EED71162CBBC4003A8C17 /* CVSBoxDrawingStrategy.h */,
@@ -216,7 +211,6 @@
 				FA9936BB16274764004125CC /* CVSDrawingViewController.m in Sources */,
 				FA9936C9162747BD004125CC /* CVSDrawingView.m in Sources */,
 				FA7EED68162CBAC1003A8C17 /* CVSLineSegment.m in Sources */,
-				FA7EED73162CBBC4003A8C17 /* CVSDrawingStrategy.m in Sources */,
 				FA7EED74162CBBC4003A8C17 /* CVSLineDrawingStrategy.m in Sources */,
 				FA7EED75162CBBC4003A8C17 /* CVSBoxDrawingStrategy.m in Sources */,
 				FAF8FE01162CC3370076CF4E /* CVSTriangleDrawingStrategy.m in Sources */,

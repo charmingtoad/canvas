@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class CVSDrawingStrategy;
-
+@protocol CVSDrawingStrategyProtocol;
 /**
  A canvas that draws touches to the screen. Visual representation
  of a touch depends on the current drawingStrategy.
@@ -19,7 +18,7 @@
 /**
  Determines the way touches on the canvas are drawn.
  */
-@property (nonatomic, strong) CVSDrawingStrategy *drawingStrategy;
+@property (nonatomic, strong) id<CVSDrawingStrategyProtocol> drawingStrategy;
 
 /**
  Removes all the drawings on the canvas.

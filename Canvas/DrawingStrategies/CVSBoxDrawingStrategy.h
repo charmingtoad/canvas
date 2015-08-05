@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Linda Morton. All rights reserved.
 //
 
-#import "CVSDrawingStrategy.h"
+#import "CVSDrawingStrategyProtocol.h"
 
 /** 
  BoxDrawingStrategy draws a rectangle for each line segment where the
@@ -15,6 +15,6 @@
  (In short, long lines translate to large boxes.)
  */
 
-@interface CVSBoxDrawingStrategy : CVSDrawingStrategy
+@interface CVSBoxDrawingStrategy : NSObject <CVSDrawingStrategyProtocol>
 
 @end

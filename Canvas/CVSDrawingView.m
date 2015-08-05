@@ -36,8 +36,6 @@
 
 @implementation CVSDrawingView
 
-@synthesize drawingStrategy;
-
 #pragma mark - Init / Dealloc
 
 - (id) initWithFrame:(CGRect)frame
@@ -55,8 +53,7 @@
         self.undrawnSegments = [[NSMutableArray alloc] initWithCapacity: 5];
         
         // default will be line drawing
-        CVSDrawingStrategy* strategy = [CVSLineDrawingStrategy new];
-        self.drawingStrategy = strategy;
+        self.drawingStrategy = [CVSLineDrawingStrategy new];
     }
     return self;
 }
@@ -101,9 +98,9 @@
 
 - (void) updateCache
 {
-    [drawingStrategy drawSegments: self.undrawnSegments inContext: self.cacheContext];
+    [self.drawingStrategy drawSegments: self.undrawnSegments inContext: self.cacheContext];
     
-    CGRect lastUpdatedArea = drawingStrategy.lastUpdatedArea;
+    CGRect lastUpdatedArea = self.drawingStrategy.lastUpdatedArea;
     lastUpdatedArea = CGRectMake (CGRectGetMinX(lastUpdatedArea) / [UIScreen mainScreen].scale,
                                   CGRectGetMinY(lastUpdatedArea) / [UIScreen mainScreen].scale,
                                   CGRectGetWidth(lastUpdatedArea) / [UIScreen mainScreen].scale,

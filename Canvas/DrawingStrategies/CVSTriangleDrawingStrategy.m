@@ -7,10 +7,11 @@
 //
 
 #import "CVSTriangleDrawingStrategy.h"
-#import "DrawingStrategySubclass.h"
 #import "CVSLineSegment.h"
 
-@interface CVSTriangleDrawingStrategy (Private)
+@interface CVSTriangleDrawingStrategy ()
+
+@property (nonatomic, readwrite) CGRect lastUpdatedArea;
 
 - (CGPoint) getPointProjectedFrom: (CGPoint) start atAngle: (float) radians forLength: (float) length;
 - (float) hashedRadianFromColor: (UIColor*) color;

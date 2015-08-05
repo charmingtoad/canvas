@@ -6,9 +6,14 @@
 //  Copyright (c) 2012 Linda Morton. All rights reserved.
 //
 
-#import "DrawingStrategySubclass.h"
 #import "CVSLineDrawingStrategy.h"
 #import "CVSLineSegment.h"
+
+@interface CVSLineDrawingStrategy ()
+
+@property (nonatomic, readwrite) CGRect lastUpdatedArea;
+
+@end
 
 @implementation CVSLineDrawingStrategy
 

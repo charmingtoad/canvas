@@ -111,26 +111,6 @@
     [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
-- (void) drawingStrategySelected: (id) sender
-{
-    NSInteger selectedIndex = [sender selectedSegmentIndex];
-    
-    CVSDrawingStrategy *selectedDrawingStrategy;
-    if (selectedIndex == 2)
-    {
-        selectedDrawingStrategy = [CVSTriangleDrawingStrategy new];
-    }
-    else if (selectedIndex == 1)
-    {
-        selectedDrawingStrategy = [CVSBoxDrawingStrategy new];
-    }
-    else
-    {
-        selectedDrawingStrategy = [CVSLineDrawingStrategy new];
-    }
-    [self.drawingView setDrawingStrategy:selectedDrawingStrategy];
-}
-
 - (void) clearButtonPressed: (UIButton*) button
 {
     [self.drawingView clear];
