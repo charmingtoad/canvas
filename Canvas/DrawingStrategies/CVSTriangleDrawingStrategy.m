@@ -32,6 +32,7 @@
     
     for (CVSLineSegment* segment in undrawnSegments)
     {
+        // TODO: (someday) instead of random angles, angle triangle based on direction of line being drawn
         float radians = [self hashedRadianFromColor: segment.color];
         
         float distance = ([self lengthOfLineFromPoint:segment.start toPoint:segment.end] + 1) * 10.0f;
