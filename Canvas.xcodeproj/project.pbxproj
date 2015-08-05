@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF2AEFD21B71EF3100AE69E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF2AEFD11B71EF3100AE69E0 /* Images.xcassets */; };
 		BFA75D4A16A646E500E75544 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA75D4916A646E500E75544 /* Default-568h@2x.png */; };
 		FA7EED68162CBAC1003A8C17 /* CVSLineSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED67162CBAC1003A8C17 /* CVSLineSegment.m */; };
 		FA7EED73162CBBC4003A8C17 /* CVSDrawingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED6E162CBBC4003A8C17 /* CVSDrawingStrategy.m */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		BF2AEF961B71C61800AE69E0 /* DrawingStrategySubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingStrategySubclass.h; sourceTree = "<group>"; };
+		BF2AEFD11B71EF3100AE69E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BFA75D4916A646E500E75544 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA7EED66162CBAC1003A8C17 /* CVSLineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVSLineSegment.h; sourceTree = "<group>"; };
 		FA7EED67162CBAC1003A8C17 /* CVSLineSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVSLineSegment.m; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				FAF8FE17162DAB940076CF4E /* UIColor+CVSExtensions.h */,
 				FAF8FE18162DAB940076CF4E /* UIColor+CVSExtensions.m */,
 				FA9936AE16274764004125CC /* Supporting Files */,
+				BF2AEFD11B71EF3100AE69E0 /* Images.xcassets */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF2AEFD21B71EF3100AE69E0 /* Images.xcassets in Resources */,
 				FA9936B216274764004125CC /* InfoPlist.strings in Resources */,
 				BFA75D4A16A646E500E75544 /* Default-568h@2x.png in Resources */,
 			);

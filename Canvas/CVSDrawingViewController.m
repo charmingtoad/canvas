@@ -33,37 +33,42 @@
     
     [rootView addSubview:self.drawingView];
     
-    UIButton *clearButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-    [clearButton setTitle: @"Clear" forState:UIControlStateNormal];
-    [clearButton addTarget: self action: @selector(clearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    CGFloat buttonHeight = 50.0f;
-    clearButton.frame = CGRectMake (0.0f,
-                                    CGRectGetHeight(rootView.frame) - buttonHeight,
-                                    CGRectGetWidth(rootView.frame),
-                                    buttonHeight);
-    clearButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    [rootView addSubview: clearButton];
+    CGFloat buttonBottomMargin = 12.0f;
+    CGSize buttonSize = CGSizeMake(48.0f, 43.0f);
+    NSInteger buttonCount = 5;
+    CGFloat buttonViewWidth = buttonSize.width * buttonCount;
+    UIView *buttonView = [[UIView alloc] initWithFrame:CGRectMake((CGRectGetWidth(rootView.frame) - buttonViewWidth) / 2.0f,
+                                                                 CGRectGetHeight(rootView.frame) - buttonSize.height - buttonBottomMargin,
+                                                                 buttonViewWidth,
+                                                                 buttonSize.height)];
+    buttonView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    [rootView addSubview:buttonView];
     
-    NSArray* segments = [NSArray arrayWithObjects:
-                         @"Lines",
-                         @"Boxes",
-                         @"Triangles", nil];
-    UISegmentedControl* drawingStrategySelectionControl = [[UISegmentedControl alloc] initWithItems: segments];
-    drawingStrategySelectionControl.frame = CGRectMake (0.0f,
-                                                        CGRectGetHeight(rootView.frame) - (2 * buttonHeight),
-                                                        CGRectGetWidth(rootView.frame),
-                                                        buttonHeight);
-    drawingStrategySelectionControl.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    UIButton *lineButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [lineButton setImage:[UIImage imageNamed:@"line-button"] forState:UIControlStateNormal];
+    [lineButton addTarget:self action:@selector(lineButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    [drawingStrategySelectionControl addTarget: self
-                                        action: @selector(drawingStrategySelected:)
-                              forControlEvents:UIControlEventValueChanged];
+    UIButton *boxButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [boxButton setImage:[UIImage imageNamed:@"box-button"] forState:UIControlStateNormal];
+    [boxButton addTarget:self action:@selector(boxButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    [rootView addSubview: drawingStrategySelectionControl];
+    UIButton *rayButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rayButton setImage:[UIImage imageNamed:@"ray-button"] forState:UIControlStateNormal];
+    [rayButton addTarget:self action:@selector(rayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    // default will be line drawing
-    [drawingStrategySelectionControl setSelectedSegmentIndex: 0];
-
+    UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [clearButton setImage:[UIImage imageNamed:@"clear-button"] forState:UIControlStateNormal];
+    [clearButton addTarget:self action:@selector(clearButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    NSArray *buttons = @[lineButton, boxButton, rayButton, clearButton];
+    CGFloat buttonLeft = 0.0f;
+    for (UIButton *button in buttons)
+    {
+        button.frame = CGRectMake(buttonLeft, 0.0f, buttonSize.width, buttonSize.height);
+        [buttonView addSubview:button];
+        buttonLeft = CGRectGetMaxX(button.frame);
+    }
+    
     self.view = rootView;
 }
 
@@ -74,6 +79,26 @@
 
 #pragma mark -
 #pragma mark Button Callbacks
+
+- (void)lineButtonTapped:(UIButton *)lineButton
+{
+    [self.drawingView setDrawingStrategy:[CVSLineDrawingStrategy new]];
+}
+
+- (void)boxButtonTapped:(UIButton *)boxButton
+{
+    [self.drawingView setDrawingStrategy:[CVSBoxDrawingStrategy new]];
+}
+
+- (void)rayButtonTapped:(UIButton *)rayButton
+{
+    [self.drawingView setDrawingStrategy:[CVSTriangleDrawingStrategy new]];
+}
+
+- (void)clearButtonTapped:(UIButton *)clearButton
+{
+    [self.drawingView clear];
+}
 
 - (void) drawingStrategySelected: (id) sender
 {
