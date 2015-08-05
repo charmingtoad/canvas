@@ -154,7 +154,6 @@
         newSegment.end = currentLocation;
         
         NSValue *touchKey = [self keyForObject:touch];
-        NSLog(@"touch key = %@", touchKey);
         if ([[self.colorForTouch allKeys] containsObject:touchKey])
         {
             newSegment.color = self.colorForTouch[touchKey];
