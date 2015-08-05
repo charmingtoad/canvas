@@ -26,4 +26,9 @@
  */
 - (void)clear;
 
+/**
+ Returns a UIImage representation of what has been drawn to the canvas so far.
+ */
+- (UIImage *)image;
+
 @end

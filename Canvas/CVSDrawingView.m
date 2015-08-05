@@ -163,6 +163,18 @@
     return [NSValue valueWithPointer:(__bridge const void *)(object)];
 }
 
+#pragma mark - Getting the Drawing
+
+- (UIImage *)image
+{
+    CGImageRef cacheImage = CGBitmapContextCreateImage(self.cacheContext);
+    UIImage *upsideDownImage = [UIImage imageWithCGImage:cacheImage];
+    UIImage *rightSideUpImage = [UIImage imageWithCGImage:upsideDownImage.CGImage
+                                                    scale:upsideDownImage.scale
+                                              orientation:UIImageOrientationDownMirrored];
+    return rightSideUpImage;
+}
+
 #pragma mark - UIResponder Overrides
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

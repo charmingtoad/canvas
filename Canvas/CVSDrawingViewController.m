@@ -60,7 +60,11 @@
     [clearButton setImage:[UIImage imageNamed:@"clear-button"] forState:UIControlStateNormal];
     [clearButton addTarget:self action:@selector(clearButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    NSArray *buttons = @[lineButton, boxButton, rayButton, clearButton];
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [shareButton setImage:[UIImage imageNamed:@"share-button"] forState:UIControlStateNormal];
+    [shareButton addTarget:self action:@selector(shareButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    NSArray *buttons = @[lineButton, boxButton, rayButton, clearButton, shareButton];
     CGFloat buttonLeft = 0.0f;
     for (UIButton *button in buttons)
     {
@@ -98,6 +102,13 @@
 - (void)clearButtonTapped:(UIButton *)clearButton
 {
     [self.drawingView clear];
+}
+
+- (void)shareButtonTapped:(UIButton *)shareButton
+{
+    UIImage *drawnImage = [self.drawingView image];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[@"I drew this for you!", drawnImage] applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 - (void) drawingStrategySelected: (id) sender
