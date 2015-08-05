@@ -304,6 +304,7 @@
 		FA9936C516274764004125CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TouchTest/TouchTest-Prefix.pch";
 				INFOPLIST_FILE = "TouchTest/TouchTest-Info.plist";
@@ -316,6 +317,7 @@
 		FA9936C616274764004125CC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TouchTest/TouchTest-Prefix.pch";
 				INFOPLIST_FILE = "TouchTest/TouchTest-Info.plist";

@@ -20,7 +20,6 @@
     [super viewDidLoad];
 	DrawingView* gestureView = [[DrawingView alloc] initWithFrame: self.view.bounds];
     [self.view addSubview: gestureView];
-    [gestureView release];
 }
 
 - (void)viewDidUnload

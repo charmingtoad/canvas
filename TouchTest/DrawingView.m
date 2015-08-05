@@ -15,8 +15,10 @@
 
 @interface DrawingView ()
 
+@property (nonatomic, strong) NSMutableDictionary *colorForTouch;
+
 /** The strategy used to draw touches detected on this view. */
-@property (nonatomic, retain) DrawingStrategy* drawingStrategy;
+@property (nonatomic, strong) DrawingStrategy* drawingStrategy;
 
 /** Creates the bitmap context where off-screen drawing will occur. Whenever this
     view refreshes, the cacheContext will be rendered on-screen in drawRect.
@@ -63,7 +65,6 @@
                                   forControlEvents:UIControlEventValueChanged];
         
         [self addSubview: drawingStrategySelectionControl];
-        [drawingStrategySelectionControl release];
         
         clearButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         [clearButton setTitle: @"Clear" forState:UIControlStateNormal];
@@ -72,7 +73,7 @@
         
         [self initCacheContext];
         
-        colorForTouch = CFDictionaryCreateMutable(kCFAllocatorDefault, 0, nil, nil);
+        self.colorForTouch = [[NSMutableDictionary alloc] init];
         
         undrawnSegments = [[NSMutableArray alloc] initWithCapacity: 5];
         
@@ -81,7 +82,6 @@
         
         DrawingStrategy* strategy = [LineDrawingStrategy new];
         self.drawingStrategy = strategy;
-        [strategy release];
     }
     return self;
 }
@@ -112,12 +112,6 @@
 - (void) dealloc
 {
     CGContextRelease(cacheContext);
-    CFRelease(colorForTouch);
-    
-    [undrawnSegments release];
-    [drawingStrategy release];
-    
-    [super dealloc];
 }
 
 #pragma mark -
@@ -155,18 +149,19 @@
         newSegment.start = prevLocation;
         newSegment.end = currentLocation;
         
-        if (CFDictionaryContainsKey(colorForTouch, touch))
+        NSValue *touchKey = [self keyForObject:touch];
+        NSLog(@"touch key = %@", touchKey);
+        if ([[self.colorForTouch allKeys] containsObject:touchKey])
         {
-            newSegment.color = CFDictionaryGetValue(colorForTouch, touch);
+            newSegment.color = self.colorForTouch[touchKey];
         }
         else
         {
-            CFDictionarySetValue(colorForTouch, touch, [UIColor randomColor]);
-            newSegment.color = CFDictionaryGetValue(colorForTouch, touch);
+            UIColor *newColor = [UIColor randomColor];
+            self.colorForTouch[touchKey] = newColor;
+            newSegment.color = newColor;
         }
-        
         [undrawnSegments addObject: newSegment];
-        [newSegment release];
     }
 }
 
@@ -207,8 +202,11 @@
 {
     for (UITouch* touch in touches)
     {
-        if (CFDictionaryContainsKey(colorForTouch, touch))
-            CFDictionaryRemoveValue(colorForTouch, touch);
+        NSValue *touchKey = [self keyForObject:touch];
+        if ([[self.colorForTouch allKeys] containsObject:touchKey])
+        {
+            [self.colorForTouch removeObjectForKey:touchKey];
+        }
     }
 }
 
@@ -216,9 +214,17 @@
 {
     for (UITouch* touch in touches)
     {
-        if (CFDictionaryContainsKey(colorForTouch, touch))
-            CFDictionaryRemoveValue(colorForTouch, touch);
+        NSValue *touchKey = [self keyForObject:touch];
+        if ([[self.colorForTouch allKeys] containsObject:touchKey])
+        {
+            [self.colorForTouch removeObjectForKey:touchKey];
+        }
     }
+}
+
+- (NSValue *)keyForObject:(id)object
+{
+    return [NSValue valueWithPointer:(__bridge const void *)(object)];
 }
 
 #pragma mark -
@@ -230,15 +236,15 @@
     
     if (selectedIndex == 2)
     {
-        self.drawingStrategy = [[TriangleDrawingStrategy new] autorelease];
+        self.drawingStrategy = [TriangleDrawingStrategy new];
     }
     else if (selectedIndex == 1)
     {
-        self.drawingStrategy = [[BoxDrawingStrategy new] autorelease];
+        self.drawingStrategy = [BoxDrawingStrategy new];
     }
     else
     {
-        self.drawingStrategy = [[LineDrawingStrategy new] autorelease];
+        self.drawingStrategy = [LineDrawingStrategy new];
     }
 }
 

@@ -15,7 +15,6 @@
     UIButton* clearButton;
     UISegmentedControl* drawingStrategySelectionControl;
     
-    CFMutableDictionaryRef colorForTouch;
     NSMutableArray* undrawnSegments;
     
     CGContextRef cacheContext;
