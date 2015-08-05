@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "DrawingStrategy.h"
 
-/** LineDrawingStrategy can be used to draw straight lines from each segment's
-    start point to end point.
+/** 
+ LineDrawingStrategy can be used to draw straight lines from each segment's
+ start point to end point.
  */
 
 @interface LineDrawingStrategy : DrawingStrategy

@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *colorForTouch;
 
+@property (nonatomic, assign) CGContextRef cacheContext;
+
 /** The strategy used to draw touches detected on this view. */
 @property (nonatomic, strong) DrawingStrategy* drawingStrategy;
 
@@ -95,23 +97,23 @@
     CGColorSpaceRef const colorspace = CGColorSpaceCreateDeviceRGB();
     CGBitmapInfo const bitmapInfo = (CGBitmapInfo)kCGImageAlphaNoneSkipFirst; // Cast to suppress warning. SO says this is normal: http://stackoverflow.com/questions/18921703/implicit-conversion-from-enumeration-type-enum-cgimagealphainfo-to-different-e
     
-    cacheContext = CGBitmapContextCreate(NULL,
-                                         width,
-                                         height,
-                                         bitsPerComponent,
-                                         bytesPerRow,
-                                         colorspace,
-                                         bitmapInfo);
+    self.cacheContext = CGBitmapContextCreate(NULL,
+                                              width,
+                                              height,
+                                              bitsPerComponent,
+                                              bytesPerRow,
+                                              colorspace,
+                                              bitmapInfo);
     
     CGColorSpaceRelease(colorspace);
 
-    CGContextSetFillColorWithColor(cacheContext, [UIColor whiteColor].CGColor);
-    CGContextFillRect(cacheContext, self.bounds);
+    CGContextSetFillColorWithColor(self.cacheContext, [UIColor whiteColor].CGColor);
+    CGContextFillRect(self.cacheContext, self.bounds);
 }
 
 - (void) dealloc
 {
-    CGContextRelease(cacheContext);
+    CGContextRelease(self.cacheContext);
 }
 
 #pragma mark -
@@ -120,14 +122,14 @@
 - (void) drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGImageRef cacheImage = CGBitmapContextCreateImage(cacheContext);
+    CGImageRef cacheImage = CGBitmapContextCreateImage(self.cacheContext);
     CGContextDrawImage(context, self.bounds, cacheImage);
     CGImageRelease(cacheImage);
 }
 
 - (void) updateCache
 {
-    [drawingStrategy drawSegments: undrawnSegments inContext: cacheContext];
+    [drawingStrategy drawSegments: undrawnSegments inContext: self.cacheContext];
     [self setNeedsDisplayInRect: drawingStrategy.lastUpdatedArea];
     
     [undrawnSegments removeAllObjects];
@@ -250,8 +252,8 @@
 
 - (void) clearButtonPressed: (UIButton*) button
 {
-    CGContextSetFillColorWithColor(cacheContext, [UIColor whiteColor].CGColor);
-    CGContextFillRect(cacheContext, self.bounds);
+    CGContextSetFillColorWithColor(self.cacheContext, [UIColor whiteColor].CGColor);
+    CGContextFillRect(self.cacheContext, self.bounds);
     
     [self setNeedsDisplay];
 }

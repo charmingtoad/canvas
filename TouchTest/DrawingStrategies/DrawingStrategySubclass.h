@@ -14,6 +14,9 @@
  */
 @interface DrawingStrategy (DrawingStrategyProtected)
 
+/**
+ The area that the last call to drawSegments affected.
+ */
 @property (nonatomic, assign) CGRect lastUpdatedArea;
 
 @end

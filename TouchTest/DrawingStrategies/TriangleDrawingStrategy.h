@@ -8,8 +8,9 @@
 
 #import "DrawingStrategy.h"
 
-/** TriangleDrawingStrategy draws triangles pointing at the end point of each 
-    line segment.
+/** 
+ TriangleDrawingStrategy draws triangles pointing at the end point of each
+ line segment.
  */
 
 @interface TriangleDrawingStrategy : DrawingStrategy

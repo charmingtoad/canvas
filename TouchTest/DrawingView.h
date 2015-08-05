@@ -17,8 +17,6 @@
     
     NSMutableArray* undrawnSegments;
     
-    CGContextRef cacheContext;
-    
     DrawingStrategy* drawingStrategy;
 }
 
