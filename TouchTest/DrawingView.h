@@ -15,8 +15,6 @@
     UIButton* clearButton;
     UISegmentedControl* drawingStrategySelectionControl;
     
-    NSMutableArray* undrawnSegments;
-    
     DrawingStrategy* drawingStrategy;
 }
 

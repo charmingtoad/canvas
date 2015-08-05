@@ -19,6 +19,8 @@
 
 @property (nonatomic, assign) CGContextRef cacheContext;
 
+@property (nonatomic, strong) NSMutableArray* undrawnSegments;
+
 /** The strategy used to draw touches detected on this view. */
 @property (nonatomic, strong) DrawingStrategy* drawingStrategy;
 
@@ -77,7 +79,7 @@
         
         self.colorForTouch = [[NSMutableDictionary alloc] init];
         
-        undrawnSegments = [[NSMutableArray alloc] initWithCapacity: 5];
+        self.undrawnSegments = [[NSMutableArray alloc] initWithCapacity: 5];
         
         // default will be line drawing
         [drawingStrategySelectionControl setSelectedSegmentIndex: 0];
@@ -129,10 +131,10 @@
 
 - (void) updateCache
 {
-    [drawingStrategy drawSegments: undrawnSegments inContext: self.cacheContext];
+    [drawingStrategy drawSegments: self.undrawnSegments inContext: self.cacheContext];
     [self setNeedsDisplayInRect: drawingStrategy.lastUpdatedArea];
     
-    [undrawnSegments removeAllObjects];
+    [self.undrawnSegments removeAllObjects];
 }
 
 - (void) queueTouchesForDrawing: (NSSet*) touches
@@ -163,7 +165,7 @@
             self.colorForTouch[touchKey] = newColor;
             newSegment.color = newColor;
         }
-        [undrawnSegments addObject: newSegment];
+        [self.undrawnSegments addObject: newSegment];
     }
 }
 
