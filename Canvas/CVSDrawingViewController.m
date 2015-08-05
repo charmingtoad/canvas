@@ -111,9 +111,4 @@
     [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
-- (void) clearButtonPressed: (UIButton*) button
-{
-    [self.drawingView clear];
-}
-
 @end
