@@ -10,9 +10,9 @@
 
 @interface UIColor (Extensions)
 
-+ (UIColor*) buttonOnColor;
-+ (UIColor*) buttonOffColor;
-
+/**
+ Returns a random color.
+ */
 + (UIColor*) randomColor;
 
 @end

@@ -10,8 +10,4 @@
 
 @implementation LineSegment
 
-@synthesize color;
-@synthesize start;
-@synthesize end;
-
 @end

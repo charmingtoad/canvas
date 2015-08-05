@@ -10,12 +10,20 @@
 
 @class DrawingStrategy;
 
+/**
+ A canvas that draws touches to the screen. Visual representation
+ of a touch depends on the current drawingStrategy.
+ */
 @interface DrawingView : UIView
-{
-    UIButton* clearButton;
-    UISegmentedControl* drawingStrategySelectionControl;
-    
-    DrawingStrategy* drawingStrategy;
-}
+
+/**
+ Determines the way touches on the canvas are drawn.
+ */
+@property (nonatomic, strong) DrawingStrategy *drawingStrategy;
+
+/**
+ Removes all the drawings on the canvas.
+ */
+- (void)clear;
 
 @end

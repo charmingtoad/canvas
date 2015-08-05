@@ -9,11 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface LineSegment : NSObject
-{
-    UIColor* color;
-    CGPoint start;
-    CGPoint end;
-}
 
 @property (nonatomic, strong) UIColor* color;
 @property (nonatomic, assign) CGPoint start;

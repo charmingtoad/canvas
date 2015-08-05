@@ -10,15 +10,6 @@
 
 @implementation UIColor (Extensions)
 
-+ (UIColor*) buttonOnColor
-{
-    return [UIColor colorWithRed:0.5f green:1.0f blue:0.5f alpha:1.0f];
-}
-+ (UIColor*) buttonOffColor
-{
-    return [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f];
-}
-
 + (UIColor*) randomColor
 {
     float randomRed     = (arc4random() % 101)/100.0f;

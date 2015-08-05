@@ -21,9 +21,6 @@
 
 @property (nonatomic, strong) NSMutableArray* undrawnSegments;
 
-/** The strategy used to draw touches detected on this view. */
-@property (nonatomic, strong) DrawingStrategy* drawingStrategy;
-
 /** Creates the bitmap context where off-screen drawing will occur. Whenever this
     view refreshes, the cacheContext will be rendered on-screen in drawRect.
  */
@@ -35,18 +32,13 @@
 /** Draws undrawnSegments using the cacheContext. */
 - (void) updateCache;
 
-/** Button callbacks */
-- (void) clearButtonPressed: (UIButton*) button;
-- (void) drawingStrategySelected: (id) sender;
-
 @end
 
 @implementation DrawingView
 
 @synthesize drawingStrategy;
 
-#pragma mark -
-#pragma mark Init / Dealloc
+#pragma mark - Init / Dealloc
 
 - (id) initWithFrame:(CGRect)frame
 {
@@ -56,34 +48,13 @@
         self.multipleTouchEnabled = YES;
         self.opaque = NO;
         self.clearsContextBeforeDrawing = NO;
-        
-        NSArray* segments = [NSArray arrayWithObjects:
-                             @"Lines",
-                             @"Boxes",
-                             @"Trianges", nil];
-        
-        drawingStrategySelectionControl = [[UISegmentedControl alloc] initWithItems: segments];
-        
-        [drawingStrategySelectionControl addTarget: self
-                                            action: @selector(drawingStrategySelected:)
-                                  forControlEvents:UIControlEventValueChanged];
-        
-        [self addSubview: drawingStrategySelectionControl];
-        
-        clearButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-        [clearButton setTitle: @"Clear" forState:UIControlStateNormal];
-        [clearButton addTarget: self action: @selector(clearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview: clearButton];
-        
+
         [self initCacheContext];
         
         self.colorForTouch = [[NSMutableDictionary alloc] init];
-        
         self.undrawnSegments = [[NSMutableArray alloc] initWithCapacity: 5];
         
         // default will be line drawing
-        [drawingStrategySelectionControl setSelectedSegmentIndex: 0];
-        
         DrawingStrategy* strategy = [LineDrawingStrategy new];
         self.drawingStrategy = strategy;
     }
@@ -118,8 +89,7 @@
     CGContextRelease(self.cacheContext);
 }
 
-#pragma mark -
-#pragma mark Drawing
+#pragma mark - Drawing
 
 - (void) drawRect:(CGRect)rect
 {
@@ -168,26 +138,22 @@
     }
 }
 
-#pragma mark -
-#pragma mark Layout
-
-- (void) layoutSubviews
+- (void)clear
 {
-    float buttonHeight = 50.0f;
+    CGContextSetFillColorWithColor(self.cacheContext, [UIColor whiteColor].CGColor);
+    CGContextFillRect(self.cacheContext, self.bounds);
     
-    clearButton.frame = CGRectMake (0.0f,
-                                    self.frame.size.height - buttonHeight,
-                                    self.frame.size.width,
-                                    buttonHeight);
-    
-    drawingStrategySelectionControl.frame = CGRectMake (0.0f,
-                                                        self.frame.size.height - (2 * buttonHeight),
-                                                        self.frame.size.width,
-                                                        buttonHeight);
+    [self setNeedsDisplay];
 }
 
-#pragma mark -
-#pragma mark UIResponder Overrides
+#pragma mark - Mapping touches to colors
+
+- (NSValue *)keyForObject:(id)object
+{
+    return [NSValue valueWithPointer:(__bridge const void *)(object)];
+}
+
+#pragma mark - UIResponder Overrides
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -223,40 +189,6 @@
             [self.colorForTouch removeObjectForKey:touchKey];
         }
     }
-}
-
-- (NSValue *)keyForObject:(id)object
-{
-    return [NSValue valueWithPointer:(__bridge const void *)(object)];
-}
-
-#pragma mark -
-#pragma mark Button Callbacks
-
-- (void) drawingStrategySelected: (id) sender
-{
-    NSInteger selectedIndex = [sender selectedSegmentIndex];
-    
-    if (selectedIndex == 2)
-    {
-        self.drawingStrategy = [TriangleDrawingStrategy new];
-    }
-    else if (selectedIndex == 1)
-    {
-        self.drawingStrategy = [BoxDrawingStrategy new];
-    }
-    else
-    {
-        self.drawingStrategy = [LineDrawingStrategy new];
-    }
-}
-
-- (void) clearButtonPressed: (UIButton*) button
-{
-    CGContextSetFillColorWithColor(self.cacheContext, [UIColor whiteColor].CGColor);
-    CGContextFillRect(self.cacheContext, self.bounds);
-    
-    [self setNeedsDisplay];
 }
 
 @end
