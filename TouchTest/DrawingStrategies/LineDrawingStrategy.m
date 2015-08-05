@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 William O'Neil. All rights reserved.
 //
 
+#import "DrawingStrategySubclass.h"
 #import "LineDrawingStrategy.h"
 #import "LineSegment.h"
 
@@ -13,7 +14,7 @@
 
 - (void) drawSegments: (NSArray*) undrawnSegments inContext: (CGContextRef) context
 {
-    lastUpdatedArea = CGRectZero;
+    self.lastUpdatedArea = CGRectZero;
     
     float const lineWidth = 2.0f;
     
@@ -37,14 +38,14 @@
         CGRect startRect = CGRectMake (segment.start.x - (lineWidth / 2.0f), segment.start.y - (lineWidth / 2.0f), lineWidth, lineWidth);
         CGRect endRect = CGRectMake (segment.end.x - (lineWidth / 2.0f), segment.end.y - (lineWidth / 2.0f), lineWidth, lineWidth);
         
-        if (CGRectEqualToRect(lastUpdatedArea, CGRectZero))
+        if (CGRectEqualToRect(self.lastUpdatedArea, CGRectZero))
         {
-            lastUpdatedArea = CGRectUnion(startRect, endRect);
+            self.lastUpdatedArea = CGRectUnion(startRect, endRect);
         }
         else
         {
             CGRect unionRect = CGRectUnion(startRect, endRect);
-            lastUpdatedArea = CGRectUnion(lastUpdatedArea, unionRect);
+            self.lastUpdatedArea = CGRectUnion(self.lastUpdatedArea, unionRect);
         }
     }
 }

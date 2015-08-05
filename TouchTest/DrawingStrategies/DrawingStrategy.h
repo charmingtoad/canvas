@@ -9,16 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface DrawingStrategy : NSObject
-{
-    @protected
-    CGRect lastUpdatedArea;
-}
 
-/** Returns the area that the last call to drawSegments affected.
+/** 
+ Returns the area that the last call to drawSegments affected.
  */
 @property (nonatomic, readonly) CGRect lastUpdatedArea;
 
-/** Draws undrawnSegments with the provided context. 
+/** 
+ Draws undrawnSegments with the provided context.
  */
 - (void) drawSegments: (NSArray*) undrawnSegments inContext: (CGContextRef) context;
 

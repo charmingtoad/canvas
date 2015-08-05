@@ -7,6 +7,7 @@
 //
 
 #import "TriangleDrawingStrategy.h"
+#import "DrawingStrategySubclass.h"
 #import "LineSegment.h"
 
 @interface TriangleDrawingStrategy (Private)
@@ -22,7 +23,7 @@
 
 - (void) drawSegments: (NSArray*) undrawnSegments inContext: (CGContextRef) context
 {
-    lastUpdatedArea = CGRectZero;
+    self.lastUpdatedArea = CGRectZero;
     
     float const lineWidth = 2.0f;
     float const angleVariance = (M_PI / 10.0f);
@@ -43,14 +44,14 @@
         CGContextAddLineToPoint(context, point1.x, point1.y);
         CGContextAddLineToPoint(context, point2.x, point2.y);
         
-        if (CGRectEqualToRect(lastUpdatedArea, CGRectZero))
+        if (CGRectEqualToRect(self.lastUpdatedArea, CGRectZero))
         {
-            lastUpdatedArea = CGContextGetPathBoundingBox(context);
+            self.lastUpdatedArea = CGContextGetPathBoundingBox(context);
         }
         else
         {
             CGRect unionRect = CGContextGetPathBoundingBox(context);
-            lastUpdatedArea = CGRectUnion(lastUpdatedArea, unionRect);
+            self.lastUpdatedArea = CGRectUnion(self.lastUpdatedArea, unionRect);
         }
         CGContextFillPath(context);
     }

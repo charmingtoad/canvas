@@ -25,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF2AEF961B71C61800AE69E0 /* DrawingStrategySubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingStrategySubclass.h; sourceTree = "<group>"; };
 		BFA75D4916A646E500E75544 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA7EED66162CBAC1003A8C17 /* LineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineSegment.h; sourceTree = "<group>"; };
 		FA7EED67162CBAC1003A8C17 /* LineSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineSegment.m; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 			children = (
 				FA7EED6D162CBBC4003A8C17 /* DrawingStrategy.h */,
 				FA7EED6E162CBBC4003A8C17 /* DrawingStrategy.m */,
+				BF2AEF961B71C61800AE69E0 /* DrawingStrategySubclass.h */,
 				FA7EED6F162CBBC4003A8C17 /* LineDrawingStrategy.h */,
 				FA7EED70162CBBC4003A8C17 /* LineDrawingStrategy.m */,
 				FA7EED71162CBBC4003A8C17 /* BoxDrawingStrategy.h */,

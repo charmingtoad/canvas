@@ -7,6 +7,7 @@
 //
 
 #import "BoxDrawingStrategy.h"
+#import "DrawingStrategySubclass.h"
 #import "LineSegment.h"
 
 @implementation BoxDrawingStrategy
@@ -15,7 +16,7 @@
 {
     CGRect updateRect = CGRectZero;
     
-    lastUpdatedArea = CGRectZero;
+    self.lastUpdatedArea = CGRectZero;
     
     float const lineWidth = 2.0f;
     
@@ -28,15 +29,15 @@
         CGRect startRect = CGRectMake (segment.start.x - (lineWidth / 2.0f), segment.start.y - (lineWidth / 2.0f), lineWidth, lineWidth);
         CGRect endRect = CGRectMake (segment.end.x - (lineWidth / 2.0f), segment.end.y - (lineWidth / 2.0f), lineWidth, lineWidth);
         
-        if (CGRectEqualToRect(lastUpdatedArea, CGRectZero))
+        if (CGRectEqualToRect(self.lastUpdatedArea, CGRectZero))
         {
             updateRect = CGRectUnion(startRect, endRect);
-            lastUpdatedArea = updateRect;
+            self.lastUpdatedArea = updateRect;
         }
         else
         {
             updateRect = CGRectUnion(startRect, endRect);
-            lastUpdatedArea = CGRectUnion(lastUpdatedArea, updateRect);
+            self.lastUpdatedArea = CGRectUnion(self.lastUpdatedArea, updateRect);
         }
         CGContextFillRect(context, updateRect);
     }
