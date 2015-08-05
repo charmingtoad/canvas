@@ -12,7 +12,7 @@
  "Protected" methods for the DrawingStrategy class.
  Import this class if you are a subclass of DrawingStrategy.
  */
-@interface DrawingStrategy (DrawingStrategyProtected)
+@interface DrawingStrategy ()
 
 /**
  The area that the last call to drawSegments affected.

@@ -7,10 +7,7 @@
 //
 
 #import "DrawingStrategy.h"
-
-@interface DrawingStrategy()
-
-@end
+#import "DrawingStrategySubclass.h"
 
 @implementation DrawingStrategy
 
@@ -21,7 +18,7 @@
     self = [super init];
     if (self)
     {
-        lastUpdatedArea = CGRectZero;
+        self.lastUpdatedArea = CGRectZero;
     }
     return self;
 }
