@@ -3,7 +3,7 @@
 //  TouchTest
 //
 //  Created by Linda Morton on 8/4/15.
-//  Copyright (c) 2015 William O'Neil. All rights reserved.
+//  Copyright (c) 2015 Linda Morton. All rights reserved.
 //
 
 #import "DrawingStrategy.h"
