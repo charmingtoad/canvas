@@ -93,7 +93,7 @@
     int const bitsPerComponent = 8;
     int const bytesPerRow = width * 4; // Each pixel gets 1 byte (8 bits) per channel, where we have 4 channels (RGBA)
     CGColorSpaceRef const colorspace = CGColorSpaceCreateDeviceRGB();
-    CGBitmapInfo const bitmapInfo = kCGImageAlphaNoneSkipFirst;
+    CGBitmapInfo const bitmapInfo = (CGBitmapInfo)kCGImageAlphaNoneSkipFirst; // Cast to suppress warning. SO says this is normal: http://stackoverflow.com/questions/18921703/implicit-conversion-from-enumeration-type-enum-cgimagealphainfo-to-different-e
     
     cacheContext = CGBitmapContextCreate(NULL,
                                          width,
@@ -232,7 +232,7 @@
 
 - (void) drawingStrategySelected: (id) sender
 {
-    int selectedIndex = [sender selectedSegmentIndex];
+    NSInteger selectedIndex = [sender selectedSegmentIndex];
     
     if (selectedIndex == 2)
     {
