@@ -18,7 +18,7 @@
     
     self.lastUpdatedArea = CGRectZero;
     
-    float const lineWidth = 2.0f;
+    float const lineWidth = 2.0f * [UIScreen mainScreen].scale;
     
     CGContextSetLineWidth(context, lineWidth);
     

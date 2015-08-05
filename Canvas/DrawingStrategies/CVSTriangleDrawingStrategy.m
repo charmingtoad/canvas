@@ -25,7 +25,7 @@
 {
     self.lastUpdatedArea = CGRectZero;
     
-    float const lineWidth = 2.0f;
+    float const lineWidth = 2.0f * [UIScreen mainScreen].scale;
     float const angleVariance = (M_PI / 10.0f);
     
     CGContextSetLineWidth(context, lineWidth);

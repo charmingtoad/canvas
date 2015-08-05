@@ -63,8 +63,8 @@
 
 - (void) initCacheContext
 {
-    float const width = self.frame.size.width;
-    float const height = self.frame.size.height;
+    float const width = CGRectGetWidth(self.frame) * [UIScreen mainScreen].scale;
+    float const height = CGRectGetHeight(self.frame) * [UIScreen mainScreen].scale;
     int const bitsPerComponent = 8;
     int const bytesPerRow = width * 4; // Each pixel gets 1 byte (8 bits) per channel, where we have 4 channels (RGBA)
     CGColorSpaceRef const colorspace = CGColorSpaceCreateDeviceRGB();
@@ -81,7 +81,7 @@
     CGColorSpaceRelease(colorspace);
 
     CGContextSetFillColorWithColor(self.cacheContext, [UIColor whiteColor].CGColor);
-    CGContextFillRect(self.cacheContext, self.bounds);
+    CGContextFillRect(self.cacheContext, CGRectMake(0.0f, 0.0f, width, height));
 }
 
 - (void) dealloc
@@ -102,7 +102,13 @@
 - (void) updateCache
 {
     [drawingStrategy drawSegments: self.undrawnSegments inContext: self.cacheContext];
-    [self setNeedsDisplayInRect: drawingStrategy.lastUpdatedArea];
+    
+    CGRect lastUpdatedArea = drawingStrategy.lastUpdatedArea;
+    lastUpdatedArea = CGRectMake (CGRectGetMinX(lastUpdatedArea) / [UIScreen mainScreen].scale,
+                                  CGRectGetMinY(lastUpdatedArea) / [UIScreen mainScreen].scale,
+                                  CGRectGetWidth(lastUpdatedArea) / [UIScreen mainScreen].scale,
+                                  CGRectGetHeight(lastUpdatedArea) / [UIScreen mainScreen].scale);
+    [self setNeedsDisplayInRect: lastUpdatedArea];
     
     [self.undrawnSegments removeAllObjects];
 }
@@ -117,7 +123,10 @@
     for (UITouch* touch in touches)
     {
         prevLocation = [touch previousLocationInView: self];
+        prevLocation = CGPointMake(prevLocation.x * [UIScreen mainScreen].scale, prevLocation.y * [UIScreen mainScreen].scale);
+        
         currentLocation = [touch locationInView: self];
+        currentLocation = CGPointMake(currentLocation.x * [UIScreen mainScreen].scale, currentLocation.y * [UIScreen mainScreen].scale);
         
         newSegment = [CVSLineSegment new];
         newSegment.start = prevLocation;
@@ -141,7 +150,8 @@
 - (void)clear
 {
     CGContextSetFillColorWithColor(self.cacheContext, [UIColor whiteColor].CGColor);
-    CGContextFillRect(self.cacheContext, self.bounds);
+    CGRect scaledBounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.bounds) * [UIScreen mainScreen].scale, CGRectGetHeight(self.bounds) * [UIScreen mainScreen].scale);
+    CGContextFillRect(self.cacheContext, scaledBounds);
     
     [self setNeedsDisplay];
 }
