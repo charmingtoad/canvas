@@ -47,7 +47,7 @@
     NSArray* segments = [NSArray arrayWithObjects:
                          @"Lines",
                          @"Boxes",
-                         @"Trianges", nil];
+                         @"Triangles", nil];
     UISegmentedControl* drawingStrategySelectionControl = [[UISegmentedControl alloc] initWithItems: segments];
     drawingStrategySelectionControl.frame = CGRectMake (0.0f,
                                                         CGRectGetHeight(rootView.frame) - (2 * buttonHeight),
