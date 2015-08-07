@@ -1,4 +1,4 @@
-//
+
 //  TriangleDrawingStrategy.m
 //  Canvas
 //
@@ -14,7 +14,6 @@
 @property (nonatomic, readwrite) CGRect lastUpdatedArea;
 
 - (CGPoint) getPointProjectedFrom: (CGPoint) start atAngle: (float) radians forLength: (float) length;
-- (float) hashedRadianFromColor: (UIColor*) color;
 - (float) getRadiansFromLineWithStart: (CGPoint) start end: (CGPoint) end;
 - (float) lengthOfLineFromPoint: (CGPoint) point1 toPoint: (CGPoint) point2;
 
@@ -33,8 +32,7 @@
     
     for (CVSLineSegment* segment in undrawnSegments)
     {
-        // TODO: (someday) instead of random angles, angle triangle based on direction of line being drawn
-        float radians = [self hashedRadianFromColor: segment.color];
+        float radians = -atan2(segment.end.y - segment.start.y, segment.start.x - segment.end.x);
         
         float distance = ([self lengthOfLineFromPoint:segment.start toPoint:segment.end] + 1) * 10.0f;
         CGContextSetFillColorWithColor(context, segment.color.CGColor);
@@ -93,22 +91,6 @@
         adjustedRadians -= (2 * M_PI);
     }
     return CGPointMake(x + start.x, y + start.y);
-}
-
-// each color will always output the same radian
-- (float) hashedRadianFromColor: (UIColor*) color
-{
-    CGFloat red;
-    CGFloat green;
-    CGFloat blue;
-    
-    [color getRed:&red green:&green blue:&blue alpha:NULL];
-    
-    //float radians = ((red + green + blue) / 3.0f) * (2 * M_PI); // this makes white always go right (2pi)
-    
-    float radians = red * (2 * M_PI);
-    
-    return radians;
 }
 
 @end
