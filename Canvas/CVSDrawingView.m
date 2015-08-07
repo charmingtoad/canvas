@@ -144,13 +144,31 @@
     }
 }
 
-- (void)clear
+- (void)clearCanvasAnimated:(BOOL)animated
 {
-    CGContextSetFillColorWithColor(self.cacheContext, [UIColor whiteColor].CGColor);
-    CGRect scaledBounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.bounds) * [UIScreen mainScreen].scale, CGRectGetHeight(self.bounds) * [UIScreen mainScreen].scale);
-    CGContextFillRect(self.cacheContext, scaledBounds);
-    
-    [self setNeedsDisplay];
+    void (^clearBlock)() = ^
+    {
+        CGContextSetFillColorWithColor(self.cacheContext, [UIColor whiteColor].CGColor);
+        CGRect scaledBounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.bounds) * [UIScreen mainScreen].scale, CGRectGetHeight(self.bounds) * [UIScreen mainScreen].scale);
+        CGContextFillRect(self.cacheContext, scaledBounds);
+        
+        [self setNeedsDisplay];
+    };
+    if (animated)
+    {
+        [UIView transitionWithView:self
+                          duration:0.4f
+                           options:UIViewAnimationOptionTransitionCurlUp
+                        animations:^
+         {
+             clearBlock();
+         }
+                        completion:nil];
+    }
+    else
+    {
+        clearBlock();
+    }
 }
 
 #pragma mark - Mapping touches to colors

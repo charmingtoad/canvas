@@ -101,7 +101,7 @@
 
 - (void)clearButtonTapped:(UIButton *)clearButton
 {
-    [self.drawingView clear];
+    [self.drawingView clearCanvasAnimated:YES];
 }
 
 - (void)shareButtonTapped:(UIButton *)shareButton

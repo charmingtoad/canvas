@@ -23,7 +23,7 @@
 /**
  Removes all the drawings on the canvas.
  */
-- (void)clear;
+- (void)clearCanvasAnimated:(BOOL)animated;
 
 /**
  Returns a UIImage representation of what has been drawn to the canvas so far.
