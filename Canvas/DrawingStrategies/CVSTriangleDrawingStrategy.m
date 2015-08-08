@@ -13,9 +13,9 @@
 
 @property (nonatomic, readwrite) CGRect lastUpdatedArea;
 
-- (CGPoint) getPointProjectedFrom: (CGPoint) start atAngle: (float) radians forLength: (float) length;
-- (float) getRadiansFromLineWithStart: (CGPoint) start end: (CGPoint) end;
-- (float) lengthOfLineFromPoint: (CGPoint) point1 toPoint: (CGPoint) point2;
+- (CGPoint) getPointProjectedFrom: (CGPoint) start atAngle: (CGFloat) radians forLength: (CGFloat) length;
+- (CGFloat) getRadiansFromLineWithStart: (CGPoint) start end: (CGPoint) end;
+- (CGFloat) lengthOfLineFromPoint: (CGPoint) point1 toPoint: (CGPoint) point2;
 
 @end
 
@@ -25,8 +25,8 @@
 {
     self.lastUpdatedArea = CGRectZero;
     
-    float const lineWidth = 2.0f * [UIScreen mainScreen].scale;
-    float const angleVariance = (M_PI / 10.0f);
+    CGFloat const lineWidth = 2.0f * [UIScreen mainScreen].scale;
+    CGFloat const angleVariance = (M_PI / 10.0f);
     
     CGContextSetLineWidth(context, lineWidth);
     
@@ -57,7 +57,7 @@
     }
 }
 
-- (float) lengthOfLineFromPoint: (CGPoint) point1 toPoint: (CGPoint) point2
+- (CGFloat) lengthOfLineFromPoint: (CGPoint) point1 toPoint: (CGPoint) point2
 {
     if (CGPointEqualToPoint(point1, point2))
         return 0;
@@ -65,7 +65,7 @@
         return sqrt(pow(point1.x - point2.x, 2) + pow(point1.y - point2.y, 2));
 }
 
-- (float) getRadiansFromLineWithStart: (CGPoint) start end: (CGPoint) end
+- (CGFloat) getRadiansFromLineWithStart: (CGPoint) start end: (CGPoint) end
 {
     CGPoint adjustedEndPoint = CGPointMake (end.x - start.x, end.y - start.y);
     
@@ -74,10 +74,10 @@
     return radians;
 }
 
-- (CGPoint) getPointProjectedFrom: (CGPoint) start atAngle: (float) radians forLength: (float) length
+- (CGPoint) getPointProjectedFrom: (CGPoint) start atAngle: (CGFloat) radians forLength: (CGFloat) length
 {
-    float x = length * cos(radians);
-    float y = length * sin(radians);
+    CGFloat x = length * cos(radians);
+    CGFloat y = length * sin(radians);
     
     float adjustedRadians = radians;
     
